@@ -13,10 +13,31 @@
 
   <body>
    <header>
-
+  <% if user_signed_in? %>
 
    <li>
-      <%= link_to"Bookers",root_path %>
+   <a href="/">Bookers</a>
+   </li>
+
+   <li>
+   <%= link_to"Home",root_path %>
+   </li>
+
+   <li>
+   <%= link_to "Users",users_path %>
+   </li>
+
+  <li>
+     <%= link_to "Books",books_path %>
+   </li>
+
+   <li>
+     <%= link_to "Log out",destroy_user_session_path, method: :delete %>
+   </li>
+   <% else %>
+
+   <li>
+   <a href="/">Bookers</a>
    </li>
 
    <li>
@@ -27,21 +48,15 @@
    <%= link_to "About",home_about_path %>
    </li>
 
-   <% if user_signed_in? %>
-
-   <li>
-     <%= link_to "ログアウト",destroy_user_session_path, method: :delete %>
-   </li>
-
-   <% else %>
-
-   <li>
+  <li>
      <%= link_to "Sign up",new_user_registration_path %>
    </li>
 
    <li>
      <%= link_to "Log in",new_user_session_path %>
    </li>
+
+
 
    <% end %>
   </header>
