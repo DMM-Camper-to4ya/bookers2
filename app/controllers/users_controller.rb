@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 
-  
+  def new
+    @post_image=User.new
+  end
+
 
   def show
    @user=Book.find(params[:id])
@@ -13,4 +16,10 @@ class UsersController < ApplicationController
 
   def edit
   end
+
+  private
+  def user_params
+      params.require(:user).permit(:name, :introduction, :image)
+  end
+
 end
