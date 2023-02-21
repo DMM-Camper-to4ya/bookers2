@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>Bookers2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,28 +12,42 @@
 
   </head>
 
-  <body>
-   <header>
-  <% if user_signed_in? %>
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container">
+<a class="navbar-brand" href="/"><span>Bookers</span></a>
 
-   <li>
-   <a href="/">Bookers</a>
+
+
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+ <span class="navbar-toggler-icon"></span>
+ </button>
+
+ <div class="collapse navbar-collapse" id="navbarNavDropdown">
+ <ul class="navbar-nav ml-auto">
+ <% if user_signed_in? %>
+   <li class="nav-item">
+   <%= link_to user_path(current_user), class: "nav-link text-light" do %>
+   Home
+   <% end %>
    </li>
 
-   <li>
-   <%= link_to"Home",root_path %>
+   <li class="nav-item">
+   <%= link_to users_path, class: "nav-link text-light" do %>
+   Users
+   <% end %>
    </li>
 
-   <li>
-   <%= link_to "Users",users_path %>
-   </li>
+  <li class="nav-item">
+  <%= link_to books_path, class: "nav-link text-light" do %>
+  Books
+  <% end %>
+  </li>
 
-  <li>
-     <%= link_to "Books",books_path %>
-   </li>
-
-   <li>
-     <%= link_to "Log out",destroy_user_session_path, method: :delete %>
+   <li class="nav-item">
+   <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do %>
+   Log out
+   <% end %>
    </li>
    <% else %>
 
@@ -53,14 +68,16 @@
    </li>
 
    <li>
-     <%= link_to "Log in",new_user_session_path %>
+  <%= link_to "Log in",new_user_session_path %>
    </li>
-
-
-
    <% end %>
+   </ul>
+   </div>
+   </div>
+   </nav>
   </header>
-    <%= yield %>
+  <%= yield %>
+  <body>
   </body>
   <footer>
   <div class='container mt-5'>

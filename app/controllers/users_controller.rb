@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
 
-  def new
-    @post_image=User.new
+  def create
   end
-
 
   def show
    @user=Book.find(params[:id])
@@ -19,7 +17,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-      params.require(:user).permit(:name, :introduction, :image)
+  params.require(:user).permit(:name, :introduction, :profile_image, :id)
   end
 
 end
