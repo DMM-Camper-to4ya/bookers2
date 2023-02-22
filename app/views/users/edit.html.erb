@@ -4,4 +4,6 @@
 <%= form_with model: @user, url:edit_user_path do |f| %>
 <h4>画像</h4>
   <%= f.file_field :profile_image, accept: "image/*" %>
+
+  <%= f.submit '投稿' %>
   <% end %>

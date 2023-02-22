@@ -51,24 +51,28 @@
    </li>
    <% else %>
 
-   <li>
-   <a href="/">Bookers</a>
+   <li class="nav-item">
+   <%= link_to root_path, class: "nav-link text-light" do %>
+   Home
+   <% end %>
    </li>
 
-   <li>
-   <%= link_to"Home",root_path %>
+  <li class="nav-item">
+   <%= link_to home_about_path, class: "nav-link text-light" do %>
+   About
+   <% end %>
    </li>
 
-   <li>
-   <%= link_to "About",home_about_path %>
+  <li class="nav-item">
+   <%= link_to new_user_registration_path, class: "nav-link text-light" do %>
+   Sign up
+   <% end %>
    </li>
 
-  <li>
-     <%= link_to "Sign up",new_user_registration_path %>
-   </li>
-
-   <li>
-  <%= link_to "Log in",new_user_session_path %>
+   <li class="nav-item">
+   <%= link_to new_user_session_path, class: "nav-link text-light" do %>
+   Log in
+   <% end %>
    </li>
    <% end %>
    </ul>
