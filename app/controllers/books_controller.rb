@@ -11,16 +11,17 @@ class BooksController < ApplicationController
   def index
   @books = Book.all
   @book = Book.new
-
-
-
-
   end
 
   def show
-
+  @book = Book.find(params[:id])
   end
 
+  # def destroy
+  # book=Book.find(params[:id])
+  # book.delete
+  # redirect_to book_path(current_user)
+  # end
 
   def edit
   @book=user.find(params[:id])
