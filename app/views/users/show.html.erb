@@ -1,26 +1,34 @@
 <%= render 'books/list', books:@book %>
-<div class= 'col-md-8 offset-md-1'>
+<div class="col-md-8 offset-md-1">
 <h2>Books</h2>
-<table class='table'>
+<table class='table table-hover table-inverse'>
+
 <thead>
 <tr>
 <th></th>
 <th>Title</th>
-<th>Opinion</th>
+<th>Opinion<th>
 <th colspan="3"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
 <% @books.each do |book| %>
-<%= link_to user_path(@user.id) do %>
-<%= image_tag @user.get_profile_image(60,60) %></td>
+<tbody>
+
+<td>
+<%= link_to book do %>
+<%= image_tag current_user.get_profile_image(100,100) %>
 <% end %>
-<td><%= book.title %></td>
+</td>
+
+<td>
+<%= link_to book.title, book %>
+</td>
+
 <td><%= book.body %></td>
-<% end %>
 </tr>
+<% end %>
+</thead>
 </tbody>
 </table>
+
+</div>
+</div>
 </div>
